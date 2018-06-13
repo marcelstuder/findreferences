@@ -1,6 +1,6 @@
 ## Problem description
 
-We are trying to find all references to public properties of automatically generated entities. Those entities are mapped using Fluent NHibernate and some of the properties are being used in repositories. In order to remove properties that are only mapped but nowhere used we would like to use roslyn to find out entities with properties having a reference count < 2 (which is not mapped properties or properties mapped using nhibernate not used anywhere in the solution).
+We are trying to find all references to public properties of automatically generated entities. Those entities are mapped using Fluent NHibernate and some of the properties are being used in repositories. In order to remove properties that are only mapped but nowhere used we would like to use roslyn to find out entities with properties having a reference count < 2 (i.e. not mapped properties or properties mapped using nhibernate but not used anywhere else in the solution).
 
 The FindAllReferences console application demonstrates our initial approach to finding references on the following class:
 
@@ -52,7 +52,7 @@ Press any key to continue...
 
 ## Fix for error: could not load assembly 'Microsoft.Build.Utilities.Core'
 
-Based on this [Github-Issue](https://github.com/dotnet/roslyn/issues/19978) we have added the following bindingredirects:
+Based on this [github-issue](https://github.com/dotnet/roslyn/issues/19978) we have added the following bindingredirects:
 
 ```
       <!-- added bindingredirects according to https://github.com/dotnet/roslyn/issues/19978 -->
@@ -81,7 +81,7 @@ Based on this [Github-Issue](https://github.com/dotnet/roslyn/issues/19978) we h
         <bindingRedirect oldVersion="14.0.0.0" newVersion="15.1.0.0" />
 ```
 
-This resolved one of the two errors but the problem with the wrong reference cound (as long as the class library project is referenced) remains.
+This resolved one of the two errors but the problem with the wrong reference count (as long as the class library project is referenced) remains.
 
 ## Environment details
 
