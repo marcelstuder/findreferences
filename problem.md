@@ -285,3 +285,7 @@ Xamarin.iOS and Xamarin.Mac SDK   11.12.0.4 (64fece5)
 Xamarin.iOS and Xamarin.Mac Reference Assemblies and MSBuild support.
 
 ```
+
+## All issues resolved
+
+Based on these hints (https://github.com/dotnet/roslyn/issues/24691) all issues have been resolved.
